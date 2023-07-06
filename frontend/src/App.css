@@ -1,0 +1,164 @@
+.App {
+  text-align: center;
+}
+
+/* Header.jsx */
+
+.header {
+  background-color: black;
+  background-image: url('police-tape.png');
+  background-size: 100vw 40vh;
+  color: yellow;
+  height: 30vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 5vw;
+}
+
+/* HomePage.jsx */
+
+.home-page {
+}
+.question-link-container {
+}
+.link-btn {
+}
+
+/* QuestionPage.jsx */
+
+.question-page {
+  background-color: lightblue;
+  height: 100vh;
+}
+.question-container {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+.button-container {
+}
+
+button {
+  padding: 2vw;
+  margin: 0 2vw;
+  font-size: x-large;
+  background-color: rgb(124, 124, 245);
+  border: solid black 2px;
+  border-radius: 10px;
+}
+.incorrect-btn {
+}
+.correct-btn {
+}
+
+/* CatchPhrase.jsx */
+
+.catchphrase {
+  background-color: gray;
+  padding-top: 2vw;
+}
+
+.catchphrase-container {
+  height: 80vh;
+  padding-top: 3vh;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.image-container {
+  position: absolute;
+  width: 80vw;
+  height: 80vh;
+}
+
+.grid-container {
+  position: absolute; /* Position the grid absolutely within the .image-reveal container */
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Add fixed column size */
+  grid-template-rows: repeat(3, 1fr); /* Add fixed row size */
+  margin: 0 auto; /* Center the grid horizontally */
+  width: 80vw;
+  height: 80vh;
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border: solid black 2px;
+  box-sizing: border-box;
+}
+
+.reveal-button-container {
+  padding: 2vw;
+}
+.catchphrase-btn {
+  background-color: green;
+}
+
+/* Square.jsx */
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  box-sizing: border-box;
+  border: solid black 2px;
+  margin: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.square-img {
+  width: 100%;
+  height: 100%;
+}
+
+.square.visible {
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw;
+}
+
+.square.hidden {
+  opacity: 0;
+  pointer-events: none; /* Disable clicking on hidden squares */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+/* CSS animation for highlighting effect */
+@keyframes highlight {
+  0%,
+  100% {
+    background-color: transparent;
+    opacity: 1; /* Start and end with full opacity */
+  }
+  50% {
+    border: solid 3px yellow; /* You can change the color to your preference */
+    filter: brightness(200%) contrast(120%) saturate(100%); /* Apply a filter to the image when the square is highlighted */
+  }
+}
+
+/* Apply the animation to the highlighted squares */
+.square.visible.highlighted {
+  animation: highlight 0.5s ease infinite;
+}
