@@ -5,7 +5,7 @@ import '../styles/square.css';
 export const Square = ({
   visible,
   highlighted,
-  onClick,
+  // onClick,
   isFlashing,
   randomIndex,
   index,
@@ -18,7 +18,7 @@ export const Square = ({
       } ${!isFlashing && randomIndex === index ? 'spinning' : ''} ${
         !isFlashing && !squareVisibility[index] ? 'fading' : ''
       }`}
-      onClick={onClick}
+      // onClick={onClick}
     >
       {visible && <img className="square-img" alt="csi" src={csiImage} />}
     </div>

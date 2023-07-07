@@ -36,18 +36,18 @@ export const Catchphrase = ({
     sweetheart,
   ];
 
-  const handleSquareClick = (index) => {
-    setSquareVisibility((prevVisibility) => {
-      const updatedVisibility = [...prevVisibility];
-      updatedVisibility[index] = !updatedVisibility[index];
-      return updatedVisibility;
-    });
+  // const handleSquareClick = (index) => {
+  //   setSquareVisibility((prevVisibility) => {
+  //     const updatedVisibility = [...prevVisibility];
+  //     updatedVisibility[index] = !updatedVisibility[index];
+  //     return updatedVisibility;
+  //   });
 
-    // If the square is clicked and hidden, update the highlighted index if needed
-    if (squareVisibility[index]) {
-      setHighlightedIndex(null);
-    }
-  };
+  //   // If the square is clicked and hidden, update the highlighted index if needed
+  //   if (squareVisibility[index]) {
+  //     setHighlightedIndex(null);
+  //   }
+  // };
 
   useEffect(() => {
     const highlightRandomSquare = () => {
@@ -72,7 +72,7 @@ export const Catchphrase = ({
   }, [squareVisibility, randomIndex, isFlashing]);
 
   const handleRandomReveal = () => {
-    // Stop the random highlighting function by clearing the interval
+    // Stop the random highlighting function by altering the state
     setIsFlashing(!isFlashing);
 
     // Play the reveal sound effect
@@ -114,7 +114,7 @@ export const Catchphrase = ({
     <section className="catchphrase">
       <section className="catchphrase-container">
         <section className="image-container">
-          <div className="grid-container">
+          <section className="grid-container">
             {/* Render the image */}
             <img className="image" alt="crime scene" src={images[imageIndex]} />
             {/* Render the 9 squares */}
@@ -123,14 +123,14 @@ export const Catchphrase = ({
                 key={index}
                 visible={visible}
                 highlighted={highlightedIndex === index} // Pass the highlighted state to Square component
-                onClick={() => handleSquareClick(index)}
+                // onClick={() => handleSquareClick(index)}
                 isFlashing={isFlashing}
                 randomIndex={randomIndex}
                 index={index}
                 squareVisibility={squareVisibility}
               />
             ))}
-          </div>
+          </section>
         </section>
       </section>
       <section className="reveal-button-container">
