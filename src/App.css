@@ -62,12 +62,14 @@ button {
 
 .catchphrase {
   background-color: gray;
-  padding-top: 2vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .catchphrase-container {
   height: 80vh;
-  padding-top: 3vh;
   display: flex;
   justify-content: center;
 }
@@ -78,20 +80,20 @@ h2 {
 
 .image-container {
   position: absolute;
-  width: 80vw;
-  height: 80vh;
+  width: 100vw;
+  height: 90vh;
 }
 
 .grid-container {
   position: absolute; /* Position the grid absolutely within the .image-reveal container */
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Add fixed column size */
   grid-template-rows: repeat(3, 1fr); /* Add fixed row size */
   margin: 0 auto; /* Center the grid horizontally */
-  width: 80vw;
-  height: 80vh;
+  width: 100vw;
+  height: 85vh;
 }
 
 .image {
@@ -104,7 +106,7 @@ h2 {
 }
 
 .reveal-button-container {
-  padding: 2vw;
+  padding: 1vw;
 }
 .catchphrase-btn {
   background-color: green;
