@@ -1,9 +1,6 @@
 // General imports
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Layout
-import { Header } from './layout/Header';
-
 // Pages
 import { Catchphrase } from './pages/Catchphrase';
 import { HomePage } from './pages/HomePage';
@@ -22,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
