@@ -6,6 +6,7 @@ import first_aid from '../images/first_aid.jpeg';
 import jackpot from '../images/jackpot.jpeg';
 import milkshake from '../images/milkshake.jpeg';
 import sweetheart from '../images/sweetheart.jpeg';
+import revealNoise from '../audio/Catchphrase_Reveal.mp3';
 import { Square } from '../components/Square';
 
 export const Catchphrase = ({
@@ -16,10 +17,14 @@ export const Catchphrase = ({
 }) => {
   const [randomIndex, setRandomIndex] = useState();
   const [highlightedIndex, setHighlightedIndex] = useState(null);
+  const [isFlashing, setIsFlashing] = useState(true); // New state to track flashing status
   const navigate = useNavigate();
 
   // Create a ref for the intervalId
   const intervalIdRef = useRef(null);
+
+  // Create a ref for the audio element
+  const revealAudioRef = useRef(null);
 
   const images = [
     crimeScenePhoto,
@@ -44,7 +49,6 @@ export const Catchphrase = ({
   };
 
   useEffect(() => {
-    // Function to highlight a random square
     const highlightRandomSquare = () => {
       const visibleSquares = squareVisibility
         .map((visible, index) => (visible ? index : -1))
@@ -54,29 +58,42 @@ export const Catchphrase = ({
       );
       setHighlightedIndex(randomIndex);
     };
-    const intervalId = setInterval(highlightRandomSquare, 150); // Adjust the interval time (in milliseconds) for the flashing effect
 
-    // Assign the intervalId to the ref
-    intervalIdRef.current = intervalId;
+    if (isFlashing) {
+      const intervalId = setInterval(highlightRandomSquare, 150);
+      intervalIdRef.current = intervalId;
+    } else {
+      clearInterval(intervalIdRef.current);
+      setHighlightedIndex(null);
+    }
 
-    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
-  }, [squareVisibility, randomIndex]);
+    return () => clearInterval(intervalIdRef.current);
+  }, [squareVisibility, randomIndex, isFlashing]);
 
   const handleRandomReveal = () => {
     // Stop the random highlighting function by clearing the interval
-    clearInterval(intervalIdRef.current);
+    setIsFlashing(!isFlashing);
 
-    // Hide the square corresponding to the current random index
-    if (randomIndex !== null) {
-      setSquareVisibility((prevVisibility) => {
-        const updatedVisibility = [...prevVisibility];
-        updatedVisibility[randomIndex] = false;
-        return updatedVisibility;
-      });
+    // Play the reveal sound effect
+    if (revealAudioRef.current) {
+      revealAudioRef.current.play();
     }
 
-    // Reset the highlighted index state
-    setHighlightedIndex(null);
+    // Hide the square corresponding to the current random index after a delay
+    setTimeout(() => {
+      if (randomIndex !== null) {
+        setSquareVisibility((prevVisibility) => {
+          const updatedVisibility = [...prevVisibility];
+          updatedVisibility[randomIndex] = false;
+          return updatedVisibility;
+        });
+      }
+    }, 2000); // Adjust the delay as needed
+
+    // Reset the highlighted index state after a delay
+    setTimeout(() => {
+      setHighlightedIndex(null);
+    }, 3000); // Adjust the delay as needed
   };
 
   const handleNextQuestion = () => {
@@ -106,6 +123,10 @@ export const Catchphrase = ({
                 visible={visible}
                 highlighted={highlightedIndex === index} // Pass the highlighted state to Square component
                 onClick={() => handleSquareClick(index)}
+                isFlashing={isFlashing}
+                randomIndex={randomIndex}
+                index={index}
+                squareVisibility={squareVisibility}
               />
             ))}
           </div>
@@ -122,6 +143,8 @@ export const Catchphrase = ({
           Reveal all
         </button>
       </section>
+      {/* Add the audio element to play the reveal sound effect */}
+      <audio ref={revealAudioRef} src={revealNoise} />
     </section>
   );
 };

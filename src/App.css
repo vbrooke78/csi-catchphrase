@@ -130,6 +130,16 @@ h2 {
   height: 100%;
 }
 
+.square.spinning {
+  /* Add spinning animation styles here */
+  animation: spin 2s infinite linear;
+}
+
+.square.fading {
+  /* Add fading animation styles here */
+  opacity: 0;
+}
+
 .square.visible {
   opacity: 1;
   display: flex;
@@ -157,6 +167,16 @@ h2 {
   50% {
     border: solid 3px yellow; /* You can change the color to your preference */
     filter: brightness(200%) contrast(120%) saturate(100%); /* Apply a filter to the image when the square is highlighted */
+  }
+}
+
+/* CSS animation for spin effect */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
