@@ -4,9 +4,13 @@ import '../styles/header.css';
 
 export const Header = () => {
   return (
-    <section className="header">
-      <h1>CSI Catchphrase</h1>
-      <Link to={'/'}>Home</Link>
+    <section className="header-container">
+      <section className="header">
+        <h1>CSI Catchphrase</h1>
+      </section>
+      <section className="navigation">
+        <Link to={'/'}>Restart game</Link>
+      </section>
     </section>
   );
 };
