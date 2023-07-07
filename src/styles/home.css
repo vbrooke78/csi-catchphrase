@@ -1,8 +1,16 @@
 /* HomePage.jsx */
 
 .home-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 .question-link-container {
+  margin-top: 10vw;
 }
 .link-btn {
+  background-color: gray;
+  width: 25vw;
+  height: 10vw;
+  font-size: xx-large;
 }

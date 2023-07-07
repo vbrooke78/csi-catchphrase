@@ -14,7 +14,6 @@ export const HomePage = () => {
     <>
       <Header />
       <section className="home-page">
-        <h1>Welcome to CSI Catchphrase</h1>
         <section className="question-link-container">
           <button className="link-btn" onClick={handleClick}>
             Click to start game
