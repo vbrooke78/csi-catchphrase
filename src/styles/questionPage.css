@@ -1,0 +1,28 @@
+/* QuestionPage.jsx */
+
+.question-page {
+  background-color: lightblue;
+  height: 100vh;
+}
+.question-container {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+.button-container {
+}
+
+button {
+  padding: 2vw;
+  margin: 0 2vw;
+  font-size: x-large;
+  background-color: rgb(124, 124, 245);
+  border: solid black 2px;
+  border-radius: 10px;
+}
+.incorrect-btn {
+}
+.correct-btn {
+}

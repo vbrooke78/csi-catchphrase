@@ -1,0 +1,50 @@
+/* CatchPhrase.jsx */
+
+.catchphrase {
+  background-color: gray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.catchphrase-container {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative; /* Change to relative positioning */
+  width: 100%;
+  height: 100%;
+}
+
+.grid-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 0; /* Add this line to remove padding */
+  margin: 0; /* Add this line to remove margin */
+}
+
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border: solid black 2px;
+  box-sizing: border-box;
+}
+
+.reveal-button-container {
+  padding: 1vw;
+}
+.catchphrase-btn {
+  background-color: green;
+}

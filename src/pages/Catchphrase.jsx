@@ -8,6 +8,7 @@ import milkshake from '../images/milkshake.jpeg';
 import sweetheart from '../images/sweetheart.jpeg';
 import revealNoise from '../audio/Catchphrase_Reveal.mp3';
 import { Square } from '../components/Square';
+import '../styles/catchphrase.css';
 
 export const Catchphrase = ({
   squareVisibility,

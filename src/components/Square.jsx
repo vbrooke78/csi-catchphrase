@@ -1,5 +1,6 @@
 import React from 'react';
 import csiImage from '../images/csi.png';
+import '../styles/square.css';
 
 export const Square = ({
   visible,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../layout/Header';
+import '../styles/questionPage.css';
 
 export const QuestionPage = ({ questionIndex, setQuestionIndex }) => {
   const navigate = useNavigate();
