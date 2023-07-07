@@ -121,7 +121,7 @@ export const Catchphrase = ({
           Next question
         </button>
         <button className="catchphrase-btn" onClick={handleRevealAll}>
-          Reveal
+          Reveal all
         </button>
       </section>
     </section>
