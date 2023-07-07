@@ -94,8 +94,6 @@ export const Catchphrase = ({
 
   return (
     <section className="catchphrase">
-      <h2>Can you guess the catchphrase?</h2>
-
       <section className="catchphrase-container">
         <section className="image-container">
           <div className="grid-container">
