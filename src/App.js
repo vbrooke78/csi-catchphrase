@@ -9,6 +9,7 @@ import { QuestionPage } from './pages/QuestionPage';
 // CSS
 import './App.css';
 import { useState } from 'react';
+import { Header } from './layout/Header';
 
 // App
 function App() {
@@ -20,15 +21,30 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={[
+              <Header
+                setQuestionIndex={setQuestionIndex}
+                setImageIndex={setImageIndex}
+                setSquareVisibility={setSquareVisibility}
+              />,
+              <HomePage />,
+            ]}
+          />
           <Route
             path="/question"
-            element={
+            element={[
+              <Header
+                setQuestionIndex={setQuestionIndex}
+                setImageIndex={setImageIndex}
+                setSquareVisibility={setSquareVisibility}
+              />,
               <QuestionPage
                 questionIndex={questionIndex}
                 setQuestionIndex={setQuestionIndex}
-              />
-            }
+              />,
+            ]}
           />
           <Route
             path="/catchphrase"
