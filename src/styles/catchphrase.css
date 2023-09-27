@@ -17,6 +17,7 @@
   position: relative; /* Change to relative positioning */
   width: 100%;
   height: 100%;
+  display: grid;
 }
 
 .grid-container {
@@ -46,4 +47,23 @@
 }
 .catchphrase-btn {
   background-color: gray;
+}
+
+.answer {
+  z-index: 10;
+  position: relative;
+  border: solid black 1vh;
+  border-radius: 5vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+  justify-self: center;
+  margin: 10vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  height: 10vh;
+  font-size: 5vh;
+  width: fit-content;
+  background-color: lightskyblue;
 }

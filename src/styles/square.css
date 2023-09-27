@@ -18,7 +18,7 @@
 
 .square.spinning {
   /* Add spinning animation styles here */
-  animation: spin 2s infinite linear;
+  animation: spin 2s linear;
 }
 
 .square.fading {
