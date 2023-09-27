@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import crimeScenePhoto from '../images/crime-scene.jpg';
+import catchphrase1 from '../images/Catchphrase 01.png';
+import catchphrase2 from '../images/Catchphrase 02.png';
 import defeat from '../images/defeat.jpeg';
 import first_aid from '../images/first_aid.jpeg';
 import jackpot from '../images/jackpot.jpeg';
@@ -19,6 +20,7 @@ export const Catchphrase = ({
   const [randomIndex, setRandomIndex] = useState();
   const [highlightedIndex, setHighlightedIndex] = useState(null);
   const [isFlashing, setIsFlashing] = useState(true); // New state to track flashing status
+  const [showAnswer, setShowAnswer] = useState(false);
   const navigate = useNavigate();
 
   // Create a ref for the intervalId
@@ -28,12 +30,18 @@ export const Catchphrase = ({
   const revealAudioRef = useRef(null);
 
   const images = [
-    crimeScenePhoto,
+    catchphrase1,
+    catchphrase2,
     defeat,
     first_aid,
     jackpot,
     milkshake,
     sweetheart,
+  ];
+
+  const answers = [
+    "Don't throw your toys out of the pram!",
+    'A chip off the old block!',
   ];
 
   // const handleSquareClick = (index) => {
@@ -114,9 +122,13 @@ export const Catchphrase = ({
     <section className="catchphrase">
       <section className="catchphrase-container">
         <section className="image-container">
+          {showAnswer && (
+            <div className="answer">{answers[imageIndex].toUpperCase()}</div>
+          )}
           <section className="grid-container">
             {/* Render the image */}
             <img className="image" alt="crime scene" src={images[imageIndex]} />
+
             {/* Render the 9 squares */}
             {squareVisibility.map((visible, index) => (
               <Square
@@ -143,6 +155,14 @@ export const Catchphrase = ({
         <button className="catchphrase-btn" onClick={handleRevealAll}>
           Reveal all
         </button>
+        {!squareVisibility.includes(true) && (
+          <button
+            className="catchphrase-btn"
+            onClick={() => setShowAnswer(true)}
+          >
+            Show answer
+          </button>
+        )}
       </section>
       {/* Add the audio element to play the reveal sound effect */}
       <audio ref={revealAudioRef} src={revealNoise} />
