@@ -42,6 +42,11 @@ export const Catchphrase = ({
   const answers = [
     "Don't throw your toys out of the pram!",
     'A chip off the old block!',
+    'Defeat',
+    'First aid',
+    'Jackpot',
+    'Milkshake',
+    'Sweetheart',
   ];
 
   // const handleSquareClick = (index) => {
