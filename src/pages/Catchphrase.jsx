@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import revealNoise from '../audio/Catchphrase_Reveal.mp3';
 import { Square } from '../components/Square';
 import { data } from '../data/data';
+import thanksForPlayingImg from '../images/Thanks for playing.jpeg';
 import '../styles/catchphrase.css';
 
 export const Catchphrase = ({
@@ -77,7 +78,12 @@ export const Catchphrase = ({
       setSquareVisibility(Array(9).fill(true));
       setImageIndex(imageIndex + 1);
     }
-    navigate('/question');
+    console.log(imageIndex, data.length);
+    if (imageIndex === data.length - 1) {
+      navigate('/catchphrase');
+    } else {
+      navigate('/question');
+    }
   };
 
   const handleRevealAll = () => {
@@ -92,37 +98,50 @@ export const Catchphrase = ({
             <div className="answer">{data[imageIndex].answer}</div>
           )}
           <section className="grid-container">
-            <img
-              className="image"
-              alt="crime scene"
-              src={data[imageIndex].image}
-            />
-
-            {/* Render the 9 squares */}
-            {squareVisibility.map((visible, index) => (
-              <Square
-                key={index}
-                visible={visible}
-                highlighted={highlightedIndex === index} // Pass the highlighted state to Square component
-                isFlashing={isFlashing}
-                randomIndex={randomIndex}
-                index={index}
-                squareVisibility={squareVisibility}
+            {imageIndex < data.length ? (
+              <img
+                className="image"
+                alt="crime scene"
+                src={data[imageIndex].image}
               />
-            ))}
+            ) : (
+              <img
+                className="image"
+                alt="crime scene"
+                src={thanksForPlayingImg}
+              />
+            )}
+            {/* Render the 9 squares */}
+            {imageIndex < data.length
+              ? squareVisibility.map((visible, index) => (
+                  <Square
+                    key={index}
+                    visible={visible}
+                    highlighted={highlightedIndex === index} // Pass the highlighted state to Square component
+                    isFlashing={isFlashing}
+                    randomIndex={randomIndex}
+                    index={index}
+                    squareVisibility={squareVisibility}
+                  />
+                ))
+              : null}
           </section>
         </section>
       </section>
       <section className="reveal-button-container">
-        <button className="catchphrase-btn" onClick={handleRandomReveal}>
-          Random reveal
-        </button>
+        {squareVisibility.includes(true) ? (
+          <button className="catchphrase-btn" onClick={handleRandomReveal}>
+            Random reveal
+          </button>
+        ) : null}
         <button className="catchphrase-btn" onClick={handleNextQuestion}>
           Next question
         </button>
-        <button className="catchphrase-btn" onClick={handleRevealAll}>
-          Reveal all
-        </button>
+        {squareVisibility.includes(true) ? (
+          <button className="catchphrase-btn" onClick={handleRevealAll}>
+            Reveal all
+          </button>
+        ) : null}
         {!squareVisibility.includes(true) && (
           <button
             className="catchphrase-btn"
