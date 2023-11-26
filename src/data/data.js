@@ -3,6 +3,7 @@ import catchphrase2 from '../images/Catchphrase 02.png';
 import catchphrase3 from '../images/Catchphrase 03.png';
 import catchphrase4 from '../images/Catchphrase 04.png';
 import catchphrase5 from '../images/Catchphrase 05.png';
+import catchphrase6 from '../images/Catchphrase 06.png';
 
 const data = [
   { image: catchphrase1, answer: "DON'T THROW YOUR TOYS OUT OF THE PRAM!" },
@@ -10,6 +11,7 @@ const data = [
   { image: catchphrase3, answer: 'THE EARLY BIRD CATCHES THE WORM!' },
   { image: catchphrase4, answer: 'ON CLOUD NINE!' },
   { image: catchphrase5, answer: 'AN APPLE A DAY KEEPS THE DOCTOR AWAY!' },
+  { image: catchphrase6, answer: 'BARKING UP THE WRONG TREE!' },
 ];
 
 export { data };
