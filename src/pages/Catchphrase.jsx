@@ -49,7 +49,7 @@ export const Catchphrase = ({
     <section className="catchphrase">
       <section className="catchphrase-container">
         <section className="image-container">
-          {showAnswer && (
+          {imageIndex < data.length && showAnswer && (
             <div className="answer">{data[imageIndex].answer}</div>
           )}
           <section className="grid-container">
