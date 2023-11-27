@@ -54,6 +54,7 @@ function App() {
                 setSquareVisibility={setSquareVisibility}
                 imageIndex={imageIndex}
                 setImageIndex={setImageIndex}
+                setQuestionIndex={setQuestionIndex}
               />
             }
           />

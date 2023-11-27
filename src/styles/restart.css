@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.navigation {
+  background-color: grey;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+}
+
+.restart-btn {
+  padding: 2vw;
+  margin: 1vw 2vw;
+  font-size: x-large;
+  background-color: gray;
+  border: solid black 2px;
+  border-radius: 10px;
+  width: 20vw;
+  align-self: center;
+}

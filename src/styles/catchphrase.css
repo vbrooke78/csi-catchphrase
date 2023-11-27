@@ -42,13 +42,6 @@
   box-sizing: border-box;
 }
 
-.reveal-button-container {
-  padding: 1vw;
-}
-.catchphrase-btn {
-  background-color: gray;
-}
-
 .answer {
   z-index: 10;
   position: relative;
